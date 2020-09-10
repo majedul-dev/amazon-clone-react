@@ -1,0 +1,78 @@
+h3 {
+  margin: 0;
+}
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  padding: 20px 0;
+}
+.register .logo {
+  height: 2rem;
+  color: #fff;
+  margin: 20px 20px 0 20px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+.register__form {
+  border: 1px solid lightgray;
+  padding: 20px;
+  width: 300px;
+}
+.register__form > form {
+  display: flex;
+  flex-direction: column;
+}
+.register__form h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.register__form label {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+.register__form input {
+  height: 12px;
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 3px;
+  margin-bottom: 1rem;
+}
+.register__form form > button {
+  background: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  padding: 7px;
+  cursor: pointer;
+}
+.register__form p {
+  margin: 0;
+  font-size: 0.8rem;
+  padding-top: 10px;
+}
+.register__create {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  text-align: center;
+  margin-top: 7px;
+  cursor: pointer;
+}
+.dontHaveAcc__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+}
+.dontHaveAcc__text hr {
+  width: 30%;
+  height: 0.01rem;
+  background: #999;
+}
+.dontHaveAcc__text span {
+  display: flex;
+  margin-bottom: 3px;
+  font-size: 0.8rem;
+  color: #999;
+}

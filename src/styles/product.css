@@ -1,0 +1,36 @@
+p {
+  margin: 0;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  min-width: 100px;
+  width: 100%;
+  background: #fff;
+  z-index: 1111;
+  /* margin: 5px; */
+}
+.product__info {
+  padding: 10px;
+}
+.product__rating {
+  display: flex;
+}
+.product__image {
+  display: flex;
+  flex-grow: 1;
+  align-self: center;
+  max-width: 200px;
+  width: 100%;
+  height: 200px;
+  object-fit: contain;
+  margin: 15px 0;
+}
+.product > button {
+  background: #f0c14b;
+  border: 1px solid;
+  border-color: #a88734 #9c7e31 #846a29;
+  padding: 7px;
+  cursor: pointer;
+}
