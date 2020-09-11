@@ -5,7 +5,8 @@ import { useStateValue } from "../context/stateProvider";
 import CheckoutProducts from "./CheckoutProducts";
 
 const Checkout = () => {
-  const [{ busket }] = useStateValue();
+  const [{ busket, user }] = useStateValue();
+  console.log(user && user.email);
 
   return (
     <div className='checkout'>
@@ -17,6 +18,7 @@ const Checkout = () => {
         />
         <div>
           <div className='checkout__title'>
+            {user ? <h3>Hello {user?.email}</h3> : ""}
             {busket.length === 0 ? (
               <h2>Your Shopping Busket is Empty</h2>
             ) : (

@@ -1,7 +1,8 @@
-import { ADD_TO_CART, REMOVE_PRODUCT } from "./actions";
+import { ADD_TO_CART, REMOVE_PRODUCT, SET_USER } from "./actions";
 
 export const initialState = {
   busket: [],
+  user: null,
 };
 
 export const getTotalAmount = (busket) =>
@@ -28,6 +29,11 @@ const reducer = (state, action) => {
       return {
         ...state,
         busket: newBusket,
+      };
+    case SET_USER:
+      return {
+        ...state,
+        user: action.user,
       };
     default:
       return state;

@@ -6,9 +6,13 @@ import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import { useStateValue } from "../context/stateProvider";
+import { auth } from "../firebase";
 
 const Navbar = ({ toggleMenu, handleMenu }) => {
-  const [{ busket }] = useStateValue();
+  const [{ busket, user }] = useStateValue();
+  const handleAuthentication = () => {
+    if (user) auth.signOut();
+  };
 
   return (
     <nav className='header'>
@@ -30,10 +34,10 @@ const Navbar = ({ toggleMenu, handleMenu }) => {
       )}
 
       <div className={`header__nav ${toggleMenu ? "showMenu" : ""}`}>
-        <Link to='/signin' className='header__link'>
-          <div className='header__option'>
-            <span>Hello, Majedul</span>
-            <span>Sign In</span>
+        <Link to={`${!user && "/signin"}`} className='header__link'>
+          <div onClick={handleAuthentication} className='header__option'>
+            <span>Hello, {user ? user.email : "Guest"}</span>
+            <span>{user ? "Sign Out" : "Sign In"}</span>
           </div>
         </Link>
         <Link to='/' className='header__link'>
