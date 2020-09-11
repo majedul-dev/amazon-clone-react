@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "../styles/nav.css";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingBasket from "@material-ui/icons/ShoppingBasket";
@@ -9,9 +9,13 @@ import { useStateValue } from "../context/stateProvider";
 import { auth } from "../firebase";
 
 const Navbar = ({ toggleMenu, handleMenu }) => {
+  const history = useHistory();
   const [{ busket, user }] = useStateValue();
   const handleAuthentication = () => {
-    if (user) auth.signOut();
+    if (user) {
+      auth.signOut();
+      history.push("/");
+    }
   };
 
   return (
@@ -34,7 +38,7 @@ const Navbar = ({ toggleMenu, handleMenu }) => {
       )}
 
       <div className={`header__nav ${toggleMenu ? "showMenu" : ""}`}>
-        <Link to={`${!user && "/signin"}`} className='header__link'>
+        <Link to={!user && "/signin"} className='header__link'>
           <div onClick={handleAuthentication} className='header__option'>
             <span>Hello, {user ? user.email : "Guest"}</span>
             <span>{user ? "Sign Out" : "Sign In"}</span>

@@ -21,7 +21,6 @@ function App() {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
         // user signed in
-        // console.log(authUser);
         dispatch({
           type: SET_USER,
           user: authUser,
